@@ -1,0 +1,55 @@
+*{
+	margin: 0;
+	padding: 0;
+	}
+html,body{
+	width:100%;
+	height: 100%;
+	font-size:62.5%;
+	
+}
+/*针对谷歌*/
+
+ul{
+	list-style: none;
+	
+}
+li{
+	float: left;
+	
+}
+a{
+	display: block;
+	text-decoration: none;
+	text-align: center;
+	font-size:16px;
+	font-size:1.6rem;
+	color: black;
+}	
+
+#header{
+	position:absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 80px;
+    z-index: 2;
+    background-color: #FFE600;
+}
+#header .logo{
+	float: left;
+	width: 148px;
+	height: 80px;
+	margin-left:83px;
+/*	为解决png图片在ie6浏览器的兼容问题 临时决定把png图片转为gif格式 虽然图片变大但是比较另外几种方法会好很多*/
+	background: url(../img/logo.png) center center no-repeat;
+}
+#header>ul{
+	float: right;
+	line-height: 80px;
+	display: block;
+	margin-right: 82px;
+}
+#header>ul li{
+	width:130px;
+}

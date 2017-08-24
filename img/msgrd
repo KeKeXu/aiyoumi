@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC"-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type"content="text/html;charset=utf-8">
+</head> 
+<script>
+	var userAgent = navigator.userAgent.toLowerCase();
+	var ie=/msie/.test( userAgent ) && !/opera/.test( userAgent );
+	var g = { closeWindow:function()
+	{
+	if ((ie&&window.history.length>0) || (!ie&&window.history.length>1)){
+		window.history.back(1);
+		return;
+	}
+	if (ie) {
+	   window.opener = null;
+	   window.open('','_top');
+		window.top.close();	
+	}
+	},
+	report:function(id,sigt)
+	{ var img = document.createElement("img");img.src = "http://wp.qq.com/cgi-bin/api_attr?id="+id+"&SigT="+sigt;
+	},
+		reportBNL:function(id) {
+		    var img = document.createElement("img"),
+		    timestamp = +(new Date());
+			img.src = "http://cgi.connect.qq.com/report/report?strValue=2,976,373,015&nValue="+id+"&tag=0&t=" + timestamp;
+		},
+		checkActiveX:function(){ 
+			var kXmlHttp = null; 
+	        try{ 
+	                if(typeof XMLHttpRequest != "undefined"){ 
+	                        kXmlHttp = new XMLHttpRequest(); 
+	                        return true;
+	                } 
+	        }catch(e){} 
+	       var aVersionhs = ["MSXML2.XMLHttp.3.0","MSXML2.XMLHttp.6.0","MSXML2.XMLHttp","Microsoft.XMLHttp","MSXML2.XMLHttp.5.0","MSXML2.XMLHttp.4.0"];
+	        for(var i=0;i<aVersionhs.length;i++){
+	                try{
+	                        kXmlHttp = new ActiveXObject(aVersionhs[i]);
+	                        return true;
+	                }catch(e){}
+	        }
+	        return false;
+		}
+	};
+	window.onload=function() 
+	{
+		g.reportBNL(10666);
+		var tencentSeries = "tencent://message/?uin=2976373015\u0026Site=qq\u0026Menu=yes";
+		var sigt = "d258b8e5fa1eca9bf37cd47fb64662581fb5283fb84e05469b1208241bb290fdf9fbd923314e5c2a0b99b63f9012129c";
+		if(!ie){  
+			g.report(6,sigt); 
+		    var iframe = document.createElement("iframe");
+		    iframe.setAttribute('frameborder', '0', 0);
+		    iframe.src = tencentSeries;
+		    document.body.appendChild(iframe);
+		    window.setTimeout(function(){g.closeWindow()},200);
+		}else{ 
+			if (!g.checkActiveX()) {
+				window.location=tencentSeries; 
+				return; 
+			}
+			try   
+			{		
+				var cpTimwp = new ActiveXObject("TimwpDll.TimwpCheck");
+				if(cpTimwp){ 
+					window.location=tencentSeries; 
+					window.setTimeout(g.closeWindow,200);
+					return;
+				}
+			} 
+			catch(e) 
+			{	
+				if(ie){  
+					g.report(5,sigt);
+					window.location="http://wp.qq.com/check_qq.html?urltencent=" + encodeURIComponent(tencentSeries) +
+	                   "&sigt=" + encodeURIComponent(sigt); 
+				}
+			}
+		}
+	} 
+	</script>
+<body>
+</body>
+</html>

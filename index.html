@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title></title>
+		<link rel="stylesheet" href="css/all.css" />
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<style>
+			#outer_content{
+				position: relative;
+		    	overflow: hidden;
+			}
+			#inner_content{
+				position: absolute;
+			    left: 0;
+			    overflow-x: hidden;
+			    overflow-y: scroll;
+			}
+			#page_1{
+				background-position: center bottom !important;	
+			}
+			.layout{
+				width: 62.5%;
+				margin: 0 auto;
+				position: relative;
+				height: 100%;
+			}	
+			.layout img{
+					position: absolute;
+					top: 10%;
+					display: block;	
+			}
+			#page_1 .prize{
+				position: absolute;
+				bottom:0;
+				left: 22%;
+				padding-bottom: 20px;
+				float: left;
+			}
+			#page_1 .prize div{
+				/*这里有兼容性问题*/
+				display: inline-block;
+				padding-right: 20px;
+			}
+			#page_1 .prize div img{
+				width: 80px;
+			}
+			#page_1 .prize>img{
+				margin-left: 50px;
+				position: absolute;
+				left:100%;
+				bottom:20px;
+				animation:fadeIn 1s linear infinite;
+			}
+			#page_2 img:nth-of-type(1),#page_3 img:nth-of-type(1),#page_5 img:nth-of-type(1){
+				height: 80%;
+			}
+			#page_4 img:nth-of-type(1){
+				width: 80%;
+				height: 90%;
+			}		
+			#page_2 img:nth-of-type(2),#page_3 img:nth-of-type(2),#page_4 img:nth-of-type(2),#page_5 img:nth-of-type(2){
+				position: absolute;
+				height:90%;
+			}
+			#page_2 .layout,#page_4 .layout{
+				width:75%;
+			}
+			#page_2 img:nth-of-type(2),#page_4 img:nth-of-type(2){
+				left: 52%;
+			}
+			#page_3 img:nth-of-type(2){
+				left: 50%;
+			}
+			#page_5 img:nth-of-type(2),#page_5 img:nth-of-type(1){
+				height:70%;
+			}
+			#page_5 img:nth-of-type(2){
+				left: 38%;
+				top: 20%;
+			}
+			#page_5 img:nth-of-type(3),#page_5 img:nth-of-type(4){
+				position: absolute;
+			}
+			#page_5 img:nth-of-type(3){
+				width: 12%;
+				top:10%;
+				left:50%;
+			}
+			#page_5 img:nth-of-type(4){
+				width: 20%;
+				left:62%;
+			}
+			.bg{
+				position: relative;
+				overflow: hidden;
+				background-size: 100%; 
+				background-repeat: no-repeat;
+			}
+			#page_1,#page_3,#page_5{
+				background: #FFE600;
+				background-position: center bottom !important;
+			}
+			#page_2,#page_4{
+				background-position: center  center!important;
+				background:  #000;
+			}
+			/*动画部分*/
+			@-ms-keyframes fadeIn{
+				0%{
+					opacity: 0;
+					filter:alpha(opacity=0);
+				}
+				100%{
+					opacity: 1;
+					filter:alpha(opacity=100);
+				}
+			}
+			@-moz-keyframes fadeIn{
+				0%{
+					opacity: 0;
+					
+				}
+				100%{
+					opacity: 1;
+					
+				}
+			}
+			@-webkit-keyframes fadeIn{
+				0%{
+					opacity: 0;
+				}
+				100%{
+					opacity: 1;
+				}
+			}
+		</style>
+		<!--[if lt IE 7]> 
+		<script>
+		</script>		
+		<![endif]-->
+		<!--[if IE 6]>
+			<script src="js/DDPngMin.js"></script>
+			<script>DD_belatedPNG.fix('#header .logo');</script>
+		<![endif]-->
+		
+	</head>
+	<body>
+		<div id="outer_content">
+			<div id="inner_content">
+				<div id="content">
+					<!--第一页-->
+					<div id="page_1" style=" width: 100%;">
+					<!--logo区-->
+						<div id="header">
+							<h1 class="logo"></h1>
+							<ul>
+								<li><a href="">首页</a></li>
+								<li><a href="">关于我们</a></li>
+								<li><a href="">联系我们</a></li>
+								<li><a href="">招商入驻</a></li>
+							</ul>
+						</div>
+						<div class="layout">
+							<img src="img/item1_main.png" style="width:120%;clear: both;"/>
+						</div>
+						<div class="prize">
+							<div><img src="img/20170710153257_116x116.png"/></div>
+							<div><img src="img/20170710153322_116x116.png"/></div>
+							<div><img src="img/20170710153330_116x116.png"/></div>
+							<div><img src="img/20170710153338_116x116.png"/></div>
+							<img src="img/item1_arrow_0.png" style="opacity: 0;"/>
+							<img src="img/item1_arrow_1.png" style="opacity: 1;"/>
+						</div>						
+					</div>
+					<!--利用css3的选择器，选取元素-->
+					<div id="page_2" >
+						<div class="layout">
+						<img src="img/item2_main_0.png"/>
+						<img src="img/item2_main_1.png"/>
+						</div>
+					</div>
+					<div id="page_3">
+						<div class="layout">
+							<img src="img/item3_main_0.png" />
+							<img src="img/item3_main_1.png"  />
+						</div>
+					</div>
+					<div id="page_4"><div class="layout">
+						<img src="img/item4_main_0.png"/>
+						<img src="img/item4_main_1.png"/>
+						</div>
+					</div>
+					<div id="page_5">
+					<div class="layout">
+							<img src="img/item5_main_0.png"/>
+							<img src="img/item5_main_1.png"/>
+							<img src="img/item5_main_2.png"/>
+							<img src="img/item5_main_3.png"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<script>
+		//两个问题
+		//IE5678获取的为正确的body元素的宽度 IE8以上及标准浏览器获取的均为window窗口的宽度
+		var iW=document.documentElement.clientWidth||document.body.clientWidth;
+			var iH=document.documentElement.clientHeight||document.body.clientHeight;
+			
+			$("#content,#outer_content,#content>div").css({"width":iW,"height":iH})
+			//改变窗口时的事件
+			$(window).resize(function(){
+				iW=document.documentElement.clientWidth||document.body.clientWidth;
+				iH=document.documentElement.clientHeight||document.body.clientHeight;
+			$("#content,#outer_content,#content>div").css({"width":iW,"height":iH})
+			})
+		//动态的添加背景	
+		$("#content>div").each(function(index,val){
+			$(this).css({"background-image":"url(img/item"+(index+1)+"_bg.png)","position": "relative","overflow": "hidden","background-size":"100%", "background-repeat": "no-repeat"})
+		})	
+		function setOpacity(obj,value){
+			var a=navigator.userAgent;
+			if((a.indexOf("MSIE 6.0")!=-1||a.indexOf("MSIE 7.0")!=-1)||a.indexOf("MSIE 8.0")!=-1){
+				obj.style.filter="alpha(opacity="+value+")";
+				}else{
+				obj.style.opacity=value/100;
+				}		
+		}
+	</script>
+	</body>
+</html>
